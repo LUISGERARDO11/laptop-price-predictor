@@ -142,6 +142,51 @@ body {
     position: relative;
 }
 
+/* Form Group Styling */
+.form-group {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border: 1px solid #e2e8f0;
+}
+
+.group-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Radio Group Styling */
+.radio-group {
+    display: flex;
+    gap: 1.5rem;
+    padding: 0.875rem 1rem;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    color: #374151;
+    cursor: pointer;
+}
+
+.radio-label input {
+    margin-right: 0.5rem;
+    accent-color: #3b82f6;
+}
+
+.input-group.error .radio-group {
+    border: 2px solid #ef4444;
+    border-radius: 12px;
+    background: #fef2f2;
+}
+
 .input-group label {
     display: block;
     font-weight: 500;

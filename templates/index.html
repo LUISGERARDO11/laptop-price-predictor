@@ -32,88 +32,143 @@
                     </div>
 
                     <form id="laptopForm" action="/predict" method="POST">
-                        <!-- Step 1: Especificaciones Técnicas -->
+                        <!-- Step 1: Especificaciones Básicas y Pantalla -->
                         <div class="form-step active" data-step="1">
                             <div class="step-header">
                                 <h2 class="step-title">
-                                    <i class="fas fa-microchip"></i>
-                                    Especificaciones Técnicas
+                                    <i class="fas fa-laptop"></i>
+                                    Especificaciones Básicas y Pantalla
                                 </h2>
-                                <p class="step-subtitle">Ingresa las características principales de hardware</p>
+                                <p class="step-subtitle">Ingresa la marca, tipo y características de la pantalla</p>
                             </div>
 
-                            <div class="form-grid three-column">
-                                <div class="input-group">
-                                    <label for="ram">Memoria RAM</label>
-                                    <div class="input-wrapper">
-                                        <input type="number" id="ram" name="ram" min="2" max="64" step="1" required>
-                                        <span class="input-unit">GB</span>
+                            <div class="form-group">
+                                <h3 class="group-title"><i class="fas fa-tags"></i> Información General</h3>
+                                <div class="form-grid two-column">
+                                    <div class="input-group">
+                                        <label for="company">Marca del Fabricante</label>
+                                        <select id="company" name="company" required>
+                                            <option value="">Seleccionar marca...</option>
+                                            <option value="Apple">Apple</option>
+                                            <option value="Dell">Dell</option>
+                                            <option value="HP">HP</option>
+                                            <option value="Lenovo">Lenovo</option>
+                                            <option value="Asus">ASUS</option>
+                                            <option value="Acer">Acer</option>
+                                            <option value="MSI">MSI</option>
+                                            <option value="Samsung">Samsung</option>
+                                            <option value="Razer">Razer</option>
+                                            <option value="Microsoft">Microsoft</option>
+                                            <option value="Toshiba">Toshiba</option>
+                                            <option value="Xiaomi">Xiaomi</option>
+                                            <option value="Huawei">Huawei</option>
+                                            <option value="LG">LG</option>
+                                            <option value="Google">Google</option>
+                                            <option value="Fujitsu">Fujitsu</option>
+                                            <option value="Mediacom">Mediacom</option>
+                                            <option value="Vero">Vero</option>
+                                            <option value="Chuwi">Chuwi</option>
+                                        </select>
+                                        <div class="error-message">Selecciona una marca válida</div>
                                     </div>
-                                    <div class="error-message">RAM debe estar entre 2 y 64 GB</div>
-                                </div>
 
-                                <div class="input-group">
-                                    <label for="weight">Peso</label>
-                                    <div class="input-wrapper">
-                                        <input type="number" id="weight" name="weight" min="1" max="3" step="0.1" required>
-                                        <span class="input-unit">kg</span>
+                                    <div class="input-group">
+                                        <label for="typename">Categoría de Laptop</label>
+                                        <select id="typename" name="typename" required>
+                                            <option value="">Seleccionar categoría...</option>
+                                            <option value="Notebook">Notebook (Uso general)</option>
+                                            <option value="Ultrabook">Ultrabook (Portátil premium)</option>
+                                            <option value="Gaming">Gaming (Videojuegos)</option>
+                                            <option value="Workstation">Workstation (Profesional)</option>
+                                            <option value="2 in 1 Convertible">2 en 1 Convertible</option>
+                                            <option value="Netbook">Netbook (Básica)</option>
+                                        </select>
+                                        <div class="error-message">Selecciona un tipo de laptop válido</div>
                                     </div>
-                                    <div class="error-message">Peso debe estar entre 1 y 3 kg</div>
-                                </div>
 
-                                <div class="input-group">
-                                    <label for="inches">Tamaño de Pantalla</label>
-                                    <div class="input-wrapper">
-                                        <input type="number" id="inches" name="inches" min="10" max="18" step="0.1" required>
-                                        <span class="input-unit">pulgadas</span>
+                                    <div class="input-group">
+                                        <label for="opsys">Sistema Operativo</label>
+                                        <select id="opsys" name="opsys" required>
+                                            <option value="">Seleccionar SO...</option>
+                                            <option value="Windows 10">Windows 10</option>
+                                            <option value="Windows 7">Windows 7</option>
+                                            <option value="Windows 10 S">Windows 10 S</option>
+                                            <option value="macOS">macOS</option>
+                                            <option value="Mac OS X">Mac OS X</option>
+                                            <option value="Linux">Linux</option>
+                                            <option value="Chrome OS">Chrome OS</option>
+                                            <option value="Android">Android</option>
+                                            <option value="No OS">Sin Sistema Operativo</option>
+                                        </select>
+                                        <div class="error-message">Selecciona un sistema operativo válido</div>
                                     </div>
-                                    <div class="error-message">Tamaño debe estar entre 10 y 18 pulgadas</div>
-                                </div>
 
-                                <div class="input-group">
-                                    <label for="scres_x">Resolución Horizontal</label>
-                                    <div class="input-wrapper">
-                                        <input type="number" id="scres_x" name="scres_x" min="1366" max="2880" step="1" required>
-                                        <span class="input-unit">px</span>
+                                    <div class="input-group">
+                                        <label for="weight">Peso</label>
+                                        <div class="input-wrapper">
+                                            <input type="number" id="weight" name="weight" min="1" max="3" step="0.1" required>
+                                            <span class="input-unit">kg</span>
+                                        </div>
+                                        <div class="error-message">Peso debe estar entre 1 y 3 kg</div>
                                     </div>
-                                    <div class="error-message">Resolución X debe estar entre 1366 y 2880 píxeles</div>
                                 </div>
+                            </div>
 
-                                <div class="input-group">
-                                    <label for="scres_y">Resolución Vertical</label>
-                                    <div class="input-wrapper">
-                                        <input type="number" id="scres_y" name="scres_y" min="768" max="1800" step="1" required>
-                                        <span class="input-unit">px</span>
+                            <div class="form-group">
+                                <h3 class="group-title"><i class="fas fa-desktop"></i> Pantalla</h3>
+                                <div class="form-grid two-column">
+                                    <div class="input-group">
+                                        <label for="inches">Tamaño de Pantalla</label>
+                                        <select id="inches" name="inches" required>
+                                            <option value="">Seleccionar tamaño...</option>
+                                            <option value="11.6">11.6"</option>
+                                            <option value="13.3">13.3"</option>
+                                            <option value="14">14"</option>
+                                            <option value="15.6">15.6"</option>
+                                            <option value="16">16"</option>
+                                            <option value="17.3">17.3"</option>
+                                        </select>
+                                        <div class="error-message">Selecciona un tamaño válido</div>
                                     </div>
-                                    <div class="error-message">Resolución Y debe estar entre 768 y 1800 píxeles</div>
-                                </div>
 
-                                <div class="input-group">
-                                    <label for="scres_is_touchscreen">Pantalla Táctil</label>
-                                    <select id="scres_is_touchscreen" name="scres_is_touchscreen" required>
-                                        <option value="">¿Es táctil?</option>
-                                        <option value="1">Sí</option>
-                                        <option value="0">No</option>
-                                    </select>
-                                    <div class="error-message">Selecciona si la pantalla es táctil</div>
-                                </div>
-
-                                <div class="input-group">
-                                    <label for="cpu_frequency">Frecuencia del CPU</label>
-                                    <div class="input-wrapper">
-                                        <input type="number" id="cpu_frequency" name="cpu_frequency" min="1.2" max="3.5" step="0.1" required>
-                                        <span class="input-unit">GHz</span>
+                                    <div class="input-group">
+                                        <label for="scres_x">Resolución Horizontal</label>
+                                        <select id="scres_x" name="scres_x" required>
+                                            <option value="">Seleccionar...</option>
+                                            <option value="1366">1366</option>
+                                            <option value="1920">1920</option>
+                                            <option value="2560">2560</option>
+                                            <option value="3840">3840</option>
+                                        </select>
+                                        <div class="error-message">Selecciona una resolución válida</div>
                                     </div>
-                                    <div class="error-message">Frecuencia debe estar entre 1.2 y 3.5 GHz</div>
-                                </div>
 
-                                <div class="input-group">
-                                    <label for="ssd_capacity">Capacidad SSD</label>
-                                    <div class="input-wrapper">
-                                        <input type="number" id="ssd_capacity" name="ssd_capacity" min="0" max="1000" step="1" required>
-                                        <span class="input-unit">GB</span>
+                                    <div class="input-group">
+                                        <label for="scres_y">Resolución Vertical</label>
+                                        <select id="scres_y" name="scres_y" required>
+                                            <option value="">Seleccionar...</option>
+                                            <option value="768">768</option>
+                                            <option value="1080">1080</option>
+                                            <option value="1440">1440</option>
+                                            <option value="2160">2160</option>
+                                        </select>
+                                        <div class="error-message">Selecciona una resolución válida</div>
                                     </div>
-                                    <div class="error-message">Capacidad SSD debe estar entre 0 y 1000 GB</div>
+
+                                    <div class="input-group">
+                                        <label>Pantalla Táctil</label>
+                                        <div class="radio-group">
+                                            <label class="radio-label">
+                                                <input type="radio" name="scres_is_touchscreen" value="0" required>
+                                                No
+                                            </label>
+                                            <label class="radio-label">
+                                                <input type="radio" name="scres_is_touchscreen" value="1">
+                                                Sí
+                                            </label>
+                                        </div>
+                                        <div class="error-message">Selecciona si la pantalla es táctil</div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -125,168 +180,146 @@
                             </div>
                         </div>
 
-                        <!-- Step 2: Configuración -->
+                        <!-- Step 2: Procesador y Almacenamiento -->
                         <div class="form-step" data-step="2">
                             <div class="step-header">
                                 <h2 class="step-title">
-                                    <i class="fas fa-cogs"></i>
-                                    Configuración del Sistema
+                                    <i class="fas fa-microchip"></i>
+                                    Procesador y Almacenamiento
                                 </h2>
-                                <p class="step-subtitle">Selecciona los componentes y sistema operativo</p>
+                                <p class="step-subtitle">Selecciona las especificaciones de hardware</p>
                             </div>
 
-                            <div class="form-grid two-column">
-                                <div class="input-group">
-                                    <label for="cpu_type">Tipo de Procesador</label>
-                                    <select id="cpu_type" name="cpu_type" required>
-                                        <option value="">Seleccionar procesador...</option>
-                                        <option value="Intel Core i7">Intel Core i7</option>
-                                        <option value="Intel Core i5">Intel Core i5</option>
-                                        <option value="Intel Core i3">Intel Core i3</option>
-                                        <option value="AMD Ryzen">AMD Ryzen</option>
-                                        <option value="Intel Celeron">Intel Celeron</option>
-                                        <option value="Intel Pentium">Intel Pentium</option>
-                                        <option value="AMD A-Series">AMD A-Series</option>
-                                        <option value="AMD E-Series">AMD E-Series</option>
-                                        <option value="Other">Otro</option>
-                                    </select>
-                                    <div class="error-message">Selecciona un tipo de CPU válido</div>
-                                </div>
-
-                                <div class="input-group">
-                                    <label for="gpu_brand">Tarjeta Gráfica</label>
-                                    <select id="gpu_brand" name="gpu_brand" required>
-                                        <option value="">Seleccionar GPU...</option>
-                                        <option value="Intel">Intel (Integrada)</option>
-                                        <option value="Nvidia">NVIDIA</option>
-                                        <option value="AMD">AMD</option>
-                                        <option value="ARM">ARM</option>
-                                    </select>
-                                    <div class="error-message">Selecciona una marca de GPU válida</div>
-                                </div>
-
-                                <div class="input-group">
-                                    <label for="storage_type">Tipo de Almacenamiento</label>
-                                    <select id="storage_type" name="storage_type" required>
-                                        <option value="">Seleccionar almacenamiento...</option>
-                                        <option value="SSD">SSD (Sólido)</option>
-                                        <option value="HDD">HDD (Mecánico)</option>
-                                        <option value="Hybrid">Híbrido (SSD + HDD)</option>
-                                        <option value="Flash Storage">Flash Storage</option>
-                                    </select>
-                                    <div class="error-message">Selecciona un tipo de almacenamiento válido</div>
-                                </div>
-
-                                <div class="input-group">
-                                    <label for="hdd_capacity">Capacidad HDD</label>
-                                    <div class="input-wrapper">
-                                        <input type="number" id="hdd_capacity" name="hdd_capacity" min="0" max="1000" step="1" required>
-                                        <span class="input-unit">GB</span>
+                            <div class="form-group">
+                                <h3 class="group-title"><i class="fas fa-cpu"></i> Procesador</h3>
+                                <div class="form-grid two-column">
+                                    <div class="input-group">
+                                        <label for="cpu_type">Tipo de Procesador</label>
+                                        <select id="cpu_type" name="cpu_type" required>
+                                            <option value="">Seleccionar procesador...</option>
+                                            <option value="Intel Core i7">Intel Core i7</option>
+                                            <option value="Intel Core i5">Intel Core i5</option>
+                                            <option value="Intel Core i3">Intel Core i3</option>
+                                            <option value="AMD Ryzen">AMD Ryzen</option>
+                                            <option value="Intel Celeron">Intel Celeron</option>
+                                            <option value="Intel Pentium">Intel Pentium</option>
+                                            <option value="AMD A-Series">AMD A-Series</option>
+                                            <option value="AMD E-Series">AMD E-Series</option>
+                                            <option value="Other">Otro</option>
+                                        </select>
+                                        <div class="error-message">Selecciona un tipo de CPU válido</div>
                                     </div>
-                                    <div class="error-message">Capacidad HDD debe estar entre 0 y 1000 GB</div>
-                                </div>
 
-                                <div class="input-group">
-                                    <label for="flash_capacity">Capacidad Flash Storage</label>
-                                    <div class="input-wrapper">
-                                        <input type="number" id="flash_capacity" name="flash_capacity" min="0" max="1000" step="1" required>
-                                        <span class="input-unit">GB</span>
+                                    <div class="input-group">
+                                        <label for="cpu_frequency">Frecuencia del CPU</label>
+                                        <div class="input-wrapper">
+                                            <input type="number" id="cpu_frequency" name="cpu_frequency" min="1.2" max="3.5" step="0.1" required>
+                                            <span class="input-unit">GHz</span>
+                                        </div>
+                                        <div class="error-message">Frecuencia debe estar entre 1.2 y 3.5 GHz</div>
                                     </div>
-                                    <div class="error-message">Capacidad Flash debe estar entre 0 y 1000 GB</div>
-                                </div>
 
-                                <div class="input-group">
-                                    <label for="hybrid_capacity">Capacidad Híbrida</label>
-                                    <div class="input-wrapper">
-                                        <input type="number" id="hybrid_capacity" name="hybrid_capacity" min="0" max="1000" step="1" required>
-                                        <span class="input-unit">GB</span>
+                                    <div class="input-group">
+                                        <label for="gpu_brand">Tarjeta Gráfica</label>
+                                        <select id="gpu_brand" name="gpu_brand" required>
+                                            <option value="">Seleccionar GPU...</option>
+                                            <option value="Intel">Intel (Integrada)</option>
+                                            <option value="Nvidia">NVIDIA</option>
+                                            <option value="AMD">AMD</option>
+                                            <option value="ARM">ARM</option>
+                                        </select>
+                                        <div class="error-message">Selecciona una marca de GPU válida</div>
                                     </div>
-                                    <div class="error-message">Capacidad Híbrida debe estar entre 0 y 1000 GB</div>
                                 </div>
+                            </div>
 
-                                <div class="input-group">
-                                    <label for="opsys">Sistema Operativo</label>
-                                    <select id="opsys" name="opsys" required>
-                                        <option value="">Seleccionar SO...</option>
-                                        <option value="Windows 10">Windows 10</option>
-                                        <option value="Windows 7">Windows 7</option>
-                                        <option value="Windows 10 S">Windows 10 S</option>
-                                        <option value="macOS">macOS</option>
-                                        <option value="Mac OS X">Mac OS X</option>
-                                        <option value="Linux">Linux</option>
-                                        <option value="Chrome OS">Chrome OS</option>
-                                        <option value="Android">Android</option>
-                                        <option value="No OS">Sin Sistema Operativo</option>
-                                    </select>
-                                    <div class="error-message">Selecciona un sistema operativo válido</div>
+                            <div class="form-group">
+                                <h3 class="group-title"><i class="fas fa-hdd"></i> Memoria y Almacenamiento</h3>
+                                <div class="form-grid two-column">
+                                    <div class="input-group">
+                                        <label for="ram">Memoria RAM</label>
+                                        <select id="ram" name="ram" required>
+                                            <option value="">Seleccionar RAM...</option>
+                                            <option value="2">2 GB</option>
+                                            <option value="4">4 GB</option>
+                                            <option value="6">6 GB</option>
+                                            <option value="8">8 GB</option>
+                                            <option value="12">12 GB</option>
+                                            <option value="16">16 GB</option>
+                                            <option value="24">24 GB</option>
+                                            <option value="32">32 GB</option>
+                                            <option value="64">64 GB</option>
+                                        </select>
+                                        <div class="error-message">Selecciona una capacidad de RAM válida</div>
+                                    </div>
+
+                                    <div class="input-group">
+                                        <label for="storage_type">Tipo de Almacenamiento</label>
+                                        <select id="storage_type" name="storage_type" required>
+                                            <option value="">Seleccionar almacenamiento...</option>
+                                            <option value="SSD">SSD (Sólido)</option>
+                                            <option value="HDD">HDD (Mecánico)</option>
+                                            <option value="Hybrid">Híbrido (SSD + HDD)</option>
+                                            <option value="Flash Storage">Flash Storage</option>
+                                        </select>
+                                        <div class="error-message">Selecciona un tipo de almacenamiento válido</div>
+                                    </div>
+
+                                    <div class="input-group">
+                                        <label for="ssd_capacity">Capacidad SSD</label>
+                                        <select id="ssd_capacity" name="ssd_capacity" required>
+                                            <option value="">Seleccionar capacidad...</option>
+                                            <option value="0">0 GB</option>
+                                            <option value="128">128 GB</option>
+                                            <option value="256">256 GB</option>
+                                            <option value="512">512 GB</option>
+                                            <option value="1024">1 TB</option>
+                                            <option value="2048">2 TB</option>
+                                        </select>
+                                        <div class="error-message">Selecciona una capacidad SSD válida</div>
+                                    </div>
+
+                                    <div class="input-group">
+                                        <label for="hdd_capacity">Capacidad HDD</label>
+                                        <select id="hdd_capacity" name="hdd_capacity" required>
+                                            <option value="">Seleccionar capacidad...</option>
+                                            <option value="0">0 GB</option>
+                                            <option value="500">500 GB</option>
+                                            <option value="1000">1 TB</option>
+                                            <option value="2000">2 TB</option>
+                                        </select>
+                                        <div class="error-message">Selecciona una capacidad HDD válida</div>
+                                    </div>
+
+                                    <div class="input-group">
+                                        <label for="flash_capacity">Capacidad Flash Storage</label>
+                                        <select id="flash_capacity" name="flash_capacity" required>
+                                            <option value="">Seleccionar capacidad...</option>
+                                            <option value="0">0 GB</option>
+                                            <option value="128">128 GB</option>
+                                            <option value="256">256 GB</option>
+                                            <option value="512">512 GB</option>
+                                            <option value="1024">1 TB</option>
+                                        </select>
+                                        <div class="error-message">Selecciona una capacidad Flash válida</div>
+                                    </div>
+
+                                    <div class="input-group">
+                                        <label for="hybrid_capacity">Capacidad Híbrida</label>
+                                        <select id="hybrid_capacity" name="hybrid_capacity" required>
+                                            <option value="">Seleccionar capacidad...</option>
+                                            <option value="0">0 GB</option>
+                                            <option value="500">500 GB</option>
+                                            <option value="1000">1 TB</option>
+                                            <option value="2000">2 TB</option>
+                                        </select>
+                                        <div class="error-message">Selecciona una capacidad Híbrida válida</div>
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="step-navigation">
                                 <button type="button" class="nav-button secondary" id="prevStep2">
-                                    <i class="fas fa-arrow-left"></i> Anterior
-                                </button>
-                                <button type="button" class="nav-button primary" id="nextStep2">
-                                    Siguiente <i class="fas fa-arrow-right"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Step 3: Marca y Tipo -->
-                        <div class="form-step" data-step="3">
-                            <div class="step-header">
-                                <h2 class="step-title">
-                                    <i class="fas fa-tags"></i>
-                                    Marca y Categoría
-                                </h2>
-                                <p class="step-subtitle">Especifica la marca y tipo de laptop</p>
-                            </div>
-
-                            <div class="form-grid two-column">
-                                <div class="input-group">
-                                    <label for="company">Marca del Fabricante</label>
-                                    <select id="company" name="company" required>
-                                        <option value="">Seleccionar marca...</option>
-                                        <option value="Apple">Apple</option>
-                                        <option value="Dell">Dell</option>
-                                        <option value="HP">HP</option>
-                                        <option value="Lenovo">Lenovo</option>
-                                        <option value="Asus">ASUS</option>
-                                        <option value="Acer">Acer</option>
-                                        <option value="MSI">MSI</option>
-                                        <option value="Samsung">Samsung</option>
-                                        <option value="Razer">Razer</option>
-                                        <option value="Microsoft">Microsoft</option>
-                                        <option value="Toshiba">Toshiba</option>
-                                        <option value="Xiaomi">Xiaomi</option>
-                                        <option value="Huawei">Huawei</option>
-                                        <option value="LG">LG</option>
-                                        <option value="Google">Google</option>
-                                        <option value="Fujitsu">Fujitsu</option>
-                                        <option value="Mediacom">Mediacom</option>
-                                        <option value="Vero">Vero</option>
-                                        <option value="Chuwi">Chuwi</option>
-                                    </select>
-                                    <div class="error-message">Selecciona una marca válida</div>
-                                </div>
-
-                                <div class="input-group">
-                                    <label for="typename">Categoría de Laptop</label>
-                                    <select id="typename" name="typename" required>
-                                        <option value="">Seleccionar categoría...</option>
-                                        <option value="Notebook">Notebook (Uso general)</option>
-                                        <option value="Ultrabook">Ultrabook (Portátil premium)</option>
-                                        <option value="Gaming">Gaming (Videojuegos)</option>
-                                        <option value="Workstation">Workstation (Profesional)</option>
-                                        <option value="2 in 1 Convertible">2 en 1 Convertible</option>
-                                        <option value="Netbook">Netbook (Básica)</option>
-                                    </select>
-                                    <div class="error-message">Selecciona un tipo de laptop válido</div>
-                                </div>
-                            </div>
-
-                            <div class="step-navigation">
-                                <button type="button" class="nav-button secondary" id="prevStep3">
                                     <i class="fas fa-arrow-left"></i> Anterior
                                 </button>
                                 <button type="submit" class="nav-button primary">

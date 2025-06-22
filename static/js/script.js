@@ -1,5 +1,5 @@
 let currentStep = 1;
-const totalSteps = 3;
+const totalSteps = 2;
 
 function updateProgress() {
     const progress = ((currentStep - 1) / (totalSteps - 1)) * 100;
@@ -61,8 +61,11 @@ function updateNavigation() {
 function validateStep(step) {
     let isValid = true;
     const inputs = document.querySelector(`.form-step[data-step="${step}"] .form-grid`).querySelectorAll('input, select');
-    console.log(`Validando paso ${step}, encontrados ${inputs.length} inputs`);
+    const radioGroups = document.querySelectorAll(`.form-step[data-step="${step}"] .radio-group`);
 
+    console.log(`Validando paso ${step}, encontrados ${inputs.length} inputs y ${radioGroups.length} grupos de radio`);
+
+    // Validate standard inputs and selects
     inputs.forEach(input => {
         const group = input.closest('.input-group');
         const errorMsg = group.querySelector('.error-message');
@@ -84,6 +87,20 @@ function validateStep(step) {
         }
     });
 
+    // Validate radio groups
+    radioGroups.forEach(radioGroup => {
+        const group = radioGroup.closest('.input-group');
+        const errorMsg = group.querySelector('.error-message');
+        const checked = radioGroup.querySelector('input:checked');
+        group.classList.remove('error');
+
+        if (!checked) {
+            group.classList.add('error');
+            isValid = false;
+            console.log(`Grupo de radio inválido en paso ${step}`);
+        }
+    });
+
     console.log(`Paso ${step} es ${isValid ? 'válido' : 'inválido'}`);
     return isValid;
 }
@@ -91,7 +108,7 @@ function validateStep(step) {
 document.getElementById('laptopForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
-    if (!validateStep(3)) {
+    if (!validateStep(currentStep)) {
         alert('Por favor, corrige los errores en el formulario antes de continuar.');
         return;
     }
@@ -171,13 +188,5 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('prevStep2').addEventListener('click', () => {
         console.log('Botón prevStep2 clicado');
         previousStep(2);
-    });
-    document.getElementById('nextStep2').addEventListener('click', () => {
-        console.log('Botón nextStep2 clicado');
-        nextStep(2);
-    });
-    document.getElementById('prevStep3').addEventListener('click', () => {
-        console.log('Botón prevStep3 clicado');
-        previousStep(3);
     });
 });
